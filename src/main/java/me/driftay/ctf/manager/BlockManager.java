@@ -1,5 +1,6 @@
 package me.driftay.ctf.manager;
 
+import me.driftay.ctf.SaberCTF;
 import me.driftay.ctf.util.Utils;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,7 +18,10 @@ public class BlockManager {
         double y = l.getY();
         double z = l.getZ();
         String world = l.getWorld().getName();
-
+        Utils.config.set("CTF.Block-Location.x", x);
+        Utils.config.set("CTF.Block-Location.y", y);
+        Utils.config.set("CTF.Block-Location.z", z);
+        Utils.config.set("CTF.Block-Location.world", world);
     }
 
     public static boolean getBlockLocation(Block block) {
