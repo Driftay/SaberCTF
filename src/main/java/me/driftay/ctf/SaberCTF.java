@@ -7,13 +7,13 @@ import me.driftay.ctf.file.impl.MessageFile;
 import me.driftay.ctf.listeners.BlockBreakListener;
 import me.driftay.ctf.manager.Winner;
 import me.driftay.ctf.util.DataFile;
-import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Collections;
 
-public class SaberCTF extends JavaPlugin {
+public class SaberCTF extends JavaPlugin implements Listener {
     public static SaberCTF instance;
     public DataFile winnerFile;
 
@@ -27,6 +27,7 @@ public class SaberCTF extends JavaPlugin {
         winnerFile = new DataFile(this, "winners");
         getCommand("ctf").setExecutor(new CmdCTF());
         getCommand("ctf").setTabCompleter(new CmdCTF());
+        this.getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
         Winner.winnerNames.addAll(winnerFile.getStringList("winners"));
     }

@@ -16,12 +16,16 @@ import org.bukkit.event.block.BlockBreakEvent;
 
 import java.util.HashMap;
 
+import static me.driftay.ctf.util.Utils.config;
 import static me.driftay.ctf.util.Utils.ctfBlockDurability;
 
 public class BlockBreakListener implements Listener {
+
     private HashMap<String, Integer> timesMined = new HashMap<>();
     private CTFRegion regions = new CTFRegion();
     private Winner winner = new Winner();
+
+
 
     @EventHandler
     public void onBreak(BlockBreakEvent e) {
@@ -42,6 +46,9 @@ public class BlockBreakListener implements Listener {
             timesMined.put(p.getName(), 1);
             p.sendMessage(Message.CTF_MINE_NOTIFICATION.getMessage().replace("{count}", String.valueOf(ctfBlockDurability - timesMined.get(p.getName()))));
             e.setCancelled(true);
+            if(config.getBoolean("CTF.Use-Particle-System")) {
+                Utils.spawnAnimation(p, e.getBlock());
+            }
             return;
         }
         timesMined.put(p.getName(), timesMined.get(p.getName()) + 1);
@@ -55,6 +62,9 @@ public class BlockBreakListener implements Listener {
             return;
         }
         p.sendMessage(Message.CTF_MINE_NOTIFICATION.getMessage().replace("{count}", String.valueOf(ctfBlockDurability - timesMined.get(p.getName()))));
+        if(config.getBoolean("CTF.Use-Particle-System")) {
+            Utils.spawnAnimation(p, e.getBlock());
+        }
         e.setCancelled(true);
     }
 }
