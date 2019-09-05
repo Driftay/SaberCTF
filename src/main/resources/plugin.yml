@@ -1,0 +1,9 @@
+name: SaberCTF
+author: Driftay
+main: me.driftay.ctf.SaberCTF
+version: ${project.version}
+depend:
+  - WorldGuard
+commands:
+  ctf:
+    description: base command for ctf

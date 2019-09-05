@@ -1,0 +1,12 @@
+CTF:
+  Region-Name: 'ctf' #What wouldguard region name would we like to check for the point?
+  Block-Durability: 50 #How many times do we want players to mine the block before winning?
+  Block-Type: OBSIDIAN #Block Type You Would Like the Point To Be
+  Admin-Permission: 'saberctf.admin'
+  Block-Location:
+    x: 0.0
+    y: 70.0
+    z: 0.0
+    world: 'world'
+  Winning-Commands: #Commands Can Be a List!
+    - 'broadcast {player} won the event congrats!!'
