@@ -1,6 +1,5 @@
 package me.driftay.ctf.util;
 
-import me.driftay.ctf.threads.SkullProfile;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -28,18 +27,6 @@ public class Utils {
         return ChatColor.translateAlternateColorCodes('&', string);
     }
 
-    public static List<String> colorList(List<String> string) {
-        List<String> colored = new ArrayList<>();
-        for (String line : string) {
-            colored.add(color(line));
-        }
-        return colored;
-    }
-
-    public static void sendConsole(String command) {
-        Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), command);
-    }
-
     public static int ctfBlockDurability = config.getInt("CTF.Block-Durability");
 
     public static Location faceEntity(Location location, Entity entity) {
@@ -49,17 +36,6 @@ public class Utils {
         return location;
     }
 
-    public static Location center(Location location) {
-        String x = "" + location.getX();
-        String z = "" + location.getZ();
-        if(x.contains(".")) x = x.substring(0, x.indexOf("."));
-        if(z.contains(".")) z = z.substring(0, z.indexOf("."));
-        x+=".5";
-        z+=".5";
-        location.setX(Double.parseDouble(x));
-        location.setZ(Double.parseDouble(z));
-        return resetRotation(location);
-    }
 
     public static void spawnAnimation(Player p, Block block){
         ArmorStand armorStand = block.getLocation().getWorld().spawn(
@@ -104,10 +80,5 @@ public class Utils {
 
         return itemStack;
     }
-
-    public static Location resetRotation(Location location) {
-        location.setYaw(0f);
-        location.setPitch(0f);
-        return location;
-    }
+    
 }

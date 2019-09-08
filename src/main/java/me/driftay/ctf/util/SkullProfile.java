@@ -1,4 +1,4 @@
-package me.driftay.ctf.threads;
+package me.driftay.ctf.util;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
