@@ -1,12 +1,13 @@
 package me.driftay.ctf.listeners;
 
-import com.massivecraft.factions.util.XMaterial;
 import me.driftay.ctf.commands.CmdCTF;
 import me.driftay.ctf.manager.BlockManager;
 import me.driftay.ctf.manager.CTFRegion;
 import me.driftay.ctf.manager.Winner;
 import me.driftay.ctf.util.Message;
 import me.driftay.ctf.util.Utils;
+import me.driftay.ctf.util.XMaterial;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
